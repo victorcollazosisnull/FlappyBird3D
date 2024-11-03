@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System;
 
 public class FlappyBirdController : MonoBehaviour
 {
     private Rigidbody _rigidbody;
+    public ParticleSystem jumpParticles;
+    public ParticleSystem collisionParticles;
     [Header("Salto y Rotación de FlappyBird")]
     public float birdForceImpulse = 4f;
     public float birdRotation = 3f;
@@ -17,11 +20,15 @@ public class FlappyBirdController : MonoBehaviour
 
     public float timePositionMyself = 0.5f;
     private bool collisionTube = false;
-    private bool applyForce = false; 
+    private bool applyForce = false;
+
+    public static event Action jumpColor;
+    public AudioSource jumpSound;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+
     }
     void Update()
     {
@@ -37,8 +44,17 @@ public class FlappyBirdController : MonoBehaviour
     }
     private void BirdJump()
     {
-        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-        _rigidbody.AddForce(Vector3.up * birdForceImpulse, ForceMode.Impulse);
+        if (Time.timeScale != 0f)
+        {
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+            _rigidbody.AddForce(Vector3.up * birdForceImpulse, ForceMode.Impulse);
+            jumpColor?.Invoke();
+            if (jumpParticles != null)
+            {
+                jumpParticles.Play();
+            }
+            jumpSound.Play();
+        }
     }
     private void BirdRotate()
     {
@@ -78,7 +94,11 @@ public class FlappyBirdController : MonoBehaviour
             collisionTube = true;
             Vector3 backForce = new Vector3(-forceChockTube, 0, 0);
             _rigidbody.AddForce(backForce, ForceMode.Impulse);
-
+            if (collisionParticles != null)
+            {
+                collisionParticles.transform.position = collision.contacts[0].point; 
+                collisionParticles.Play();
+            }
             Transform Tubes = collision.transform.parent;
             Transform TubeSup = Tubes.Find("TubeSup");
             Transform TubeInf = Tubes.Find("TubeInf");

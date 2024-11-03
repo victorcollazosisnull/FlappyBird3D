@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3477240722752579987}
   - component: {fileID: 2023142897664579836}
   - component: {fileID: 3204882224715222858}
+  - component: {fileID: 2814340836666245837}
   m_Layer: 0
   m_Name: TubeInf
   m_TagString: tube
@@ -121,6 +122,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tubeSpeed: 10
   parentTubes: {fileID: 2403725632341462334}
+--- !u!114 &2814340836666245837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106413958801850385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa205d5f0de73734cac53f189bb350af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorSettings: {fileID: 11400000, guid: aa663d8e28b1c1a47a71fb2e977e38ff, type: 2}
 --- !u!1 &2346739277949712030
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +181,7 @@ GameObject:
   - component: {fileID: 71332550673898937}
   - component: {fileID: 1950256000365104848}
   - component: {fileID: 3577116963988148661}
+  - component: {fileID: 972881566607388061}
   m_Layer: 0
   m_Name: TubeSup
   m_TagString: tube
@@ -275,3 +290,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tubeSpeed: 10
   parentTubes: {fileID: 2403725632341462334}
+--- !u!114 &972881566607388061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3936755528325457243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa205d5f0de73734cac53f189bb350af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorSettings: {fileID: 11400000, guid: aa663d8e28b1c1a47a71fb2e977e38ff, type: 2}
