@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3204882224715222858}
   m_Layer: 0
   m_Name: TubeInf
-  m_TagString: Untagged
+  m_TagString: tube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tubeSpeed: 10
+  parentTubes: {fileID: 2403725632341462334}
 --- !u!1 &2346739277949712030
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +169,7 @@ GameObject:
   - component: {fileID: 3577116963988148661}
   m_Layer: 0
   m_Name: TubeSup
-  m_TagString: Untagged
+  m_TagString: tube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,3 +274,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tubeSpeed: 10
+  parentTubes: {fileID: 2403725632341462334}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TubeController : MonoBehaviour
 {
+    [Header("Configuracion de Tubos")]
     public GameObject TubesPrefab; 
     public float positionX = 13.19f; 
     public float positionToDestroy = -36f; 

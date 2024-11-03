@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TubeMovement : MonoBehaviour
 {
-    public float tubeSpeed = 3f; 
+    public float tubeSpeed = 3f;
+    public Transform parentTubes;
 
     private void Update()
     {
@@ -12,7 +13,7 @@ public class TubeMovement : MonoBehaviour
 
         if (transform.position.x < -36f) 
         {
-            Destroy(gameObject); 
+            Destroy(parentTubes.gameObject); 
         }
     }
 }
