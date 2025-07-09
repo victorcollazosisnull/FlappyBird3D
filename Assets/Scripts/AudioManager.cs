@@ -6,12 +6,17 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public static bool playMusicOnStart = true;
+
     public AudioMixer audioMixer;
 
     [Header("Sliders")]
     public Slider masterSlider;
     public Slider musicSlider;
     public Slider sfxSlider;
+
+    [Header("Referencias de audio")]
+    public AudioSource musicSource;
 
     void Start()
     {
@@ -24,6 +29,12 @@ public class AudioManager : MonoBehaviour
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
         Volumes();
+
+        if (musicSource != null && playMusicOnStart)
+        {
+            musicSource.loop = true;
+            musicSource.Play();
+        }
     }
 
     public void SetMasterVolume(float volume)
@@ -46,5 +57,12 @@ public class AudioManager : MonoBehaviour
         audioMixer.SetFloat("Master", 0);
         audioMixer.SetFloat("Music", 0);
         audioMixer.SetFloat("SFX", 0);
+    }
+    public void StopMusic()
+    {
+        if (musicSource != null && musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
     }
 }
